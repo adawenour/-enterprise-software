@@ -12,7 +12,7 @@ Setting up automated rules.
 Database modeling and query generation.
 Creating and handling form data for input into the database.
 Setting up secure user logins.
-Building a search engine for the app.
+Building a search engine for integrating a date range search field.
 HTML and CSS customization.
 Advance Rails console techniques.
 Nested relationaships.
