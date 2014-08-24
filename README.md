@@ -1,7 +1,7 @@
 enterprise-app
 ==============
 
-Working on building software focused on businesses and enterprises features. 
+Working on building software focused on businesses and enterprises features.
 
 -Rapid prototyping through branch management and iterations.
 
@@ -17,6 +17,6 @@ HTML and CSS customization.
 Advance Rails console techniques.
 Nested relationaships.
 Focuse on object oriented programming (OOP).
-Perofrming calculations in rails.
+Performing calculations in rails.
 Quiet the rails logs.
 And more!
