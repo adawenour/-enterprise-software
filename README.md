@@ -19,4 +19,5 @@ Nested relationaships.
 Focuse on object oriented programming (OOP).
 Performing calculations in rails.
 Quiet the rails logs.
+Sendgrid and ActionMailer for emailing confirmation emails (using the Devise confirmable method)
 And more!
