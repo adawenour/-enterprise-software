@@ -1183,3 +1183,302 @@ Processing by Devise::RegistrationsController#new as HTML
   Rendered devise/shared/_links.erb (1.0ms)
   Rendered devise/registrations/new.html.erb within layouts/application (6.5ms)
 Completed 200 OK in 35ms (Views: 32.0ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCompanies (20140828072253)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "manager" varchar(255), "status" varchar(255), "terms" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140828072253"]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-28 03:32:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 781ms (Views: 769.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-28 03:33:05 -0400
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 25ms (Views: 20.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2014-08-28 03:33:07 -0400
+Processing by CompaniesController#new as HTML
+  Rendered companies/_form.html.erb (136.8ms)
+  Rendered companies/new.html.erb within layouts/application (178.4ms)
+Completed 200 OK in 199ms (Views: 195.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/companies" for 127.0.0.1 at 2014-08-28 03:33:24 -0400
+Processing by CompaniesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "company"=>{"name"=>"me", "manager"=>"me", "status"=>"hold", "terms"=>"1"}, "commit"=>"Create Company"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "companies" ("created_at", "manager", "name", "status", "terms", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2014-08-28 07:33:24.765532"], ["manager", "me"], ["name", "me"], ["status", "hold"], ["terms", 1], ["updated_at", "2014-08-28 07:33:24.765532"]]
+  [1m[36m (33.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/companies/1
+Completed 302 Found in 56ms (ActiveRecord: 34.2ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2014-08-28 03:33:24 -0400
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered companies/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 22ms (Views: 17.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-28 03:33:26 -0400
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 26ms (Views: 24.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/companies/1/edit" for 127.0.0.1 at 2014-08-28 03:33:42 -0400
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies"  WHERE "companies"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered companies/_form.html.erb (7.5ms)
+  Rendered companies/edit.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 35ms (Views: 32.7ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/companies/1" for 127.0.0.1 at 2014-08-28 03:33:47 -0400
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "company"=>{"name"=>"me", "manager"=>"me", "status"=>"hold", "terms"=>"30"}, "commit"=>"Update Company", "id"=>"1"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "companies" SET "terms" = ?, "updated_at" = ? WHERE "companies"."id" = 1[0m  [["terms", 30], ["updated_at", "2014-08-28 07:33:47.239696"]]
+  [1m[35m (34.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/companies/1
+Completed 302 Found in 43ms (ActiveRecord: 35.8ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2014-08-28 03:33:47 -0400
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies"  WHERE "companies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered companies/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-28 03:33:53 -0400
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-28 03:36:44 -0400
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-28 03:41:32 -0400
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (72.9ms)
+Completed 500 Internal Server Error in 78ms
+
+ActionView::Template::Error (undefined method `import_companies_path' for #<#<Class:0x007fe894b616b8>:0x007fe896892520>):
+    33: <br>
+    34: 
+    35: <h3> Import Companies</h3>
+    36: <%= form_tag import_companies_path multipart: true do %>
+    37: <%= file_field_tag :file %>
+    38: <%= submit_tag "Upload Companies" %>
+    39: <% end %>
+  app/views/companies/index.html.erb:36:in `_app_views_companies_index_html_erb___1870132225760454416_70318467338100'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (52.1ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-28 03:43:40 -0400
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 25ms (Views: 21.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-28 03:50:22 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 176ms (Views: 158.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-28 03:50:49 -0400
+Processing by CompaniesController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+NameError (uninitialized constant Company::CVS):
+  app/models/company.rb:2:in `<class:Company>'
+  app/models/company.rb:1:in `<top (required)>'
+  app/controllers/companies_controller.rb:7:in `index'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (40.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-28 03:52:06 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-28 03:52:16 -0400
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 26ms (Views: 22.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/companies/import?multipart=true" for 127.0.0.1 at 2014-08-28 03:54:07 -0400
+Processing by CompaniesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "file"=>"Adding Post Slugs.docx", "commit"=>"Upload Companies", "multipart"=>"true"}
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant Company::CVS):
+  app/models/company.rb:3:in `import'
+  app/controllers/companies_controller.rb:65:in `import'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.5ms)
+
+
+Started POST "/companies/import?multipart=true" for 127.0.0.1 at 2014-08-28 03:58:19 -0400
+Processing by CompaniesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "file"=>"companies.xlsx", "commit"=>"Upload Companies", "multipart"=>"true"}
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant Company::CVS):
+  app/models/company.rb:3:in `import'
+  app/controllers/companies_controller.rb:65:in `import'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.7ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-28 04:01:16 -0400
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 40ms (Views: 38.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/companies/import?multipart=true" for 127.0.0.1 at 2014-08-28 04:01:32 -0400
+Processing by CompaniesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "file"=>"companies.csv", "commit"=>"Upload Companies", "multipart"=>"true"}
+Completed 500 Internal Server Error in 3ms
+
+NameError (uninitialized constant Company::CVS):
+  app/models/company.rb:3:in `import'
+  app/controllers/companies_controller.rb:65:in `import'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.2ms)
+
+
+Started POST "/companies/import?multipart=true" for 127.0.0.1 at 2014-08-28 04:02:16 -0400
+Processing by CompaniesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "file"=>"companies.csv", "commit"=>"Upload Companies", "multipart"=>"true"}
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `path' for "companies.csv":String):
+  app/models/company.rb:3:in `import'
+  app/controllers/companies_controller.rb:65:in `import'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.6ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-28 04:04:47 -0400
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 26ms (Views: 22.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/companies/import?multipart=true" for 127.0.0.1 at 2014-08-28 04:04:55 -0400
+Processing by CompaniesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "file"=>"companies.csv", "commit"=>"Upload Companies", "multipart"=>"true"}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `path' for "companies.csv":String):
+  app/models/company.rb:3:in `import'
+  app/controllers/companies_controller.rb:65:in `import'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-28 04:06:13 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-28 04:06:27 -0400
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/companies/import?multipart=true" for 127.0.0.1 at 2014-08-28 04:06:33 -0400
+Processing by CompaniesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "file"=>"companies.csv", "commit"=>"Upload Companies", "multipart"=>"true"}
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `path' for "companies.csv":String):
+  app/models/company.rb:3:in `import'
+  app/controllers/companies_controller.rb:65:in `import'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.5ms)
