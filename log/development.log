@@ -1482,3 +1482,104 @@ NoMethodError (undefined method `path' for "companies.csv":String):
   Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
   Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
   Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-29 03:55:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 425ms (Views: 411.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-29 03:56:11 -0400
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 27ms (Views: 23.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies.csv" for 127.0.0.1 at 2014-08-29 03:56:19 -0400
+Processing by CompaniesController#index as CSV
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 25ms (Views: 20.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/companies/import?multipart=true" for 127.0.0.1 at 2014-08-29 03:57:12 -0400
+Processing by CompaniesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "file"=>"companies.csv", "commit"=>"Upload Companies", "multipart"=>"true"}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `path' for "companies.csv":String):
+  app/models/company.rb:3:in `import'
+  app/controllers/companies_controller.rb:70:in `import'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.4ms)
+
+
+Started POST "/companies/import?multipart=true" for 127.0.0.1 at 2014-08-29 03:59:53 -0400
+Processing by CompaniesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "file"=>"companies.csv", "commit"=>"Upload Companies", "multipart"=>"true"}
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `path' for "companies.csv":String):
+  app/models/company.rb:3:in `import'
+  app/controllers/companies_controller.rb:70:in `import'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-29 04:04:34 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-08-29 04:04:37 -0400
+Processing by InvoicesController#index as HTML
+  [1m[35mInvoice Load (0.5ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-22' AND '2014-08-29')
+  Rendered invoices/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 60ms (Views: 25.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-29 04:04:46 -0400
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 39ms (Views: 36.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-29 04:05:24 -0400
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/companies/new" for 127.0.0.1 at 2014-08-29 04:06:23 -0400
+Processing by CompaniesController#new as HTML
+  Rendered companies/_form.html.erb (152.7ms)
+  Rendered companies/new.html.erb within layouts/application (205.7ms)
+Completed 200 OK in 222ms (Views: 220.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-29 04:06:50 -0400
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-29 04:07:13 -0400
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.4ms)
