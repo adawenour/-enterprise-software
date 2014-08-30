@@ -1689,3 +1689,364 @@ Processing by InvoicesController#new as HTML
   Rendered invoices/_form.html.erb (10.3ms)
   Rendered invoices/new.html.erb within layouts/application (13.3ms)
 Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-30 01:42:22 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-08-30 01:42:49 -0400
+Processing by InvoicesController#index as HTML
+  [1m[36mInvoice Load (0.3ms)[0m  [1mSELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-30')[0m
+  Rendered invoices/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-30 01:42:58 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 25ms (Views: 24.1ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEmployees (20140830055024)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "employees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "phone" varchar(255), "job_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140830055024"]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-30 01:57:28 -0400
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 547ms (Views: 545.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2014-08-30 02:00:03 -0400
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 28ms (Views: 15.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2014-08-30 02:00:22 -0400
+Processing by EmployeesController#new as HTML
+  Rendered employees/_form.html.erb (17.7ms)
+  Rendered employees/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 42ms (Views: 38.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/employees" for 127.0.0.1 at 2014-08-30 02:00:35 -0400
+Processing by EmployeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "employee"=>{"name"=>"jos", "phone"=>"54667788", "job_type"=>"manager"}, "commit"=>"Create Employee"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "employees" ("created_at", "job_type", "name", "phone", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-08-30 06:00:35.616304"], ["job_type", "manager"], ["name", "jos"], ["phone", "54667788"], ["updated_at", "2014-08-30 06:00:35.616304"]]
+  [1m[35m (45.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/employees/1
+Completed 302 Found in 52ms (ActiveRecord: 45.8ms)
+
+
+Started GET "/employees/1" for 127.0.0.1 at 2014-08-30 02:00:35 -0400
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT  "employees".* FROM "employees"  WHERE "employees"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered employees/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2014-08-30 02:00:37 -0400
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (0.3ms)[0m  SELECT "employees".* FROM "employees"
+  Rendered employees/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2014-08-30 02:02:11 -0400
+Processing by EmployeesController#new as HTML
+  Rendered employees/_form.html.erb (4.9ms)
+  Rendered employees/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees" for 127.0.0.1 at 2014-08-30 02:02:20 -0400
+Processing by EmployeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "employee"=>{"name"=>"tiffany", "phone"=>"6367373733", "job_type"=>"manager"}, "commit"=>"Create Employee"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "employees" ("created_at", "job_type", "name", "phone", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-08-30 06:02:20.060970"], ["job_type", "manager"], ["name", "tiffany"], ["phone", "6367373733"], ["updated_at", "2014-08-30 06:02:20.060970"]]
+  [1m[36m (36.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/employees/2
+Completed 302 Found in 41ms (ActiveRecord: 36.6ms)
+
+
+Started GET "/employees/2" for 127.0.0.1 at 2014-08-30 02:02:20 -0400
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mEmployee Load (0.2ms)[0m  SELECT  "employees".* FROM "employees"  WHERE "employees"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered employees/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2014-08-30 02:02:26 -0400
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 27ms (Views: 25.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2014-08-30 02:02:27 -0400
+Processing by EmployeesController#new as HTML
+  Rendered employees/_form.html.erb (4.8ms)
+  Rendered employees/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 27ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/employees" for 127.0.0.1 at 2014-08-30 02:02:34 -0400
+Processing by EmployeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "employee"=>{"name"=>"john", "phone"=>"44444444", "job_type"=>"salesperson"}, "commit"=>"Create Employee"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "employees" ("created_at", "job_type", "name", "phone", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-08-30 06:02:34.907851"], ["job_type", "salesperson"], ["name", "john"], ["phone", "44444444"], ["updated_at", "2014-08-30 06:02:34.907851"]]
+  [1m[35m (34.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/employees/3
+Completed 302 Found in 40ms (ActiveRecord: 34.8ms)
+
+
+Started GET "/employees/3" for 127.0.0.1 at 2014-08-30 02:02:34 -0400
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT  "employees".* FROM "employees"  WHERE "employees"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered employees/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2014-08-30 02:02:36 -0400
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (0.3ms)[0m  SELECT "employees".* FROM "employees"
+  Rendered employees/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveSalespersonFromInvoices (20140830060940)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.5ms)[0m  [1mCREATE TEMPORARY TABLE "ainvoices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "company" varchar(255), "tax" decimal, "salesperson" varchar(255), "created_at" datetime, "updated_at" datetime, "status_type" varchar(255)) [0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "invoices"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ainvoices" ("id","date","company","tax","salesperson","created_at","updated_at","status_type") VALUES (1, '2014-07-08 15:14:00.000000', 'me', 5.7, 'mark', '2014-07-08 15:14:39.816077', '2014-07-08 15:14:39.816077', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ainvoices" ("id","date","company","tax","salesperson","created_at","updated_at","status_type") VALUES (2, '2014-08-21 07:50:00.000000', 'me', 3, 'test', '2014-08-21 07:50:31.146779', '2014-08-21 07:54:14.201802', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ainvoices" ("id","date","company","tax","salesperson","created_at","updated_at","status_type") VALUES (3, '2014-08-25 00:23:00.000000', 'abs', 4, 'me', '2014-08-25 00:23:33.468911', '2014-08-25 00:23:33.468911', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ainvoices" ("id","date","company","tax","salesperson","created_at","updated_at","status_type") VALUES (4, '2014-05-29 00:00:00.000000', 'abc', 6.5, 'me', '2014-08-29 08:47:59.561580', '2014-08-29 08:47:59.561580', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ainvoices" ("id","date","company","tax","salesperson","created_at","updated_at","status_type") VALUES (5, '2014-08-30 00:00:00.000000', 'me', 0, 'hello', '2014-08-30 05:23:21.738530', '2014-08-30 05:23:21.738530', 'PAID')[0m
+  [1m[35m (13.6ms)[0m  DROP TABLE "invoices"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "invoices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "company" varchar(255), "tax" decimal, "created_at" datetime, "updated_at" datetime, "status_type" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "ainvoices"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "invoices" ("id","date","company","tax","created_at","updated_at","status_type") VALUES (1, '2014-07-08 15:14:00.000000', 'me', 5.7, '2014-07-08 15:14:39.816077', '2014-07-08 15:14:39.816077', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "invoices" ("id","date","company","tax","created_at","updated_at","status_type") VALUES (2, '2014-08-21 07:50:00.000000', 'me', 3, '2014-08-21 07:50:31.146779', '2014-08-21 07:54:14.201802', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "invoices" ("id","date","company","tax","created_at","updated_at","status_type") VALUES (3, '2014-08-25 00:23:00.000000', 'abs', 4, '2014-08-25 00:23:33.468911', '2014-08-25 00:23:33.468911', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "invoices" ("id","date","company","tax","created_at","updated_at","status_type") VALUES (4, '2014-05-29 00:00:00.000000', 'abc', 6.5, '2014-08-29 08:47:59.561580', '2014-08-29 08:47:59.561580', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "invoices" ("id","date","company","tax","created_at","updated_at","status_type") VALUES (5, '2014-08-30 00:00:00.000000', 'me', 0, '2014-08-30 05:23:21.738530', '2014-08-30 05:23:21.738530', 'PAID')[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "ainvoices"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "invoices" ADD "salesperson_id" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140830060940"]]
+  [1m[36m (45.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/employees" for 127.0.0.1 at 2014-08-30 02:13:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EmployeesController#index as HTML
+  [1m[35mEmployee Load (0.2ms)[0m  SELECT "employees".* FROM "employees"
+  Rendered employees/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 247ms (Views: 229.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-30 02:13:44 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveSalespersonidFromInvoices (20140830061638)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.2ms)[0m  [1mCREATE TEMPORARY TABLE "ainvoices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "company" varchar(255), "tax" decimal, "created_at" datetime, "updated_at" datetime, "status_type" varchar(255), "salesperson_id" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "invoices"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ainvoices" ("id","date","company","tax","created_at","updated_at","status_type","salesperson_id") VALUES (1, '2014-07-08 15:14:00.000000', 'me', 5.7, '2014-07-08 15:14:39.816077', '2014-07-08 15:14:39.816077', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ainvoices" ("id","date","company","tax","created_at","updated_at","status_type","salesperson_id") VALUES (2, '2014-08-21 07:50:00.000000', 'me', 3, '2014-08-21 07:50:31.146779', '2014-08-21 07:54:14.201802', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ainvoices" ("id","date","company","tax","created_at","updated_at","status_type","salesperson_id") VALUES (3, '2014-08-25 00:23:00.000000', 'abs', 4, '2014-08-25 00:23:33.468911', '2014-08-25 00:23:33.468911', NULL, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ainvoices" ("id","date","company","tax","created_at","updated_at","status_type","salesperson_id") VALUES (4, '2014-05-29 00:00:00.000000', 'abc', 6.5, '2014-08-29 08:47:59.561580', '2014-08-29 08:47:59.561580', NULL, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ainvoices" ("id","date","company","tax","created_at","updated_at","status_type","salesperson_id") VALUES (5, '2014-08-30 00:00:00.000000', 'me', 0, '2014-08-30 05:23:21.738530', '2014-08-30 05:23:21.738530', 'PAID', NULL)[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "invoices"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "invoices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "company" varchar(255), "tax" decimal, "created_at" datetime, "updated_at" datetime, "status_type" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "ainvoices"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "invoices" ("id","date","company","tax","created_at","updated_at","status_type") VALUES (1, '2014-07-08 15:14:00.000000', 'me', 5.7, '2014-07-08 15:14:39.816077', '2014-07-08 15:14:39.816077', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "invoices" ("id","date","company","tax","created_at","updated_at","status_type") VALUES (2, '2014-08-21 07:50:00.000000', 'me', 3, '2014-08-21 07:50:31.146779', '2014-08-21 07:54:14.201802', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "invoices" ("id","date","company","tax","created_at","updated_at","status_type") VALUES (3, '2014-08-25 00:23:00.000000', 'abs', 4, '2014-08-25 00:23:33.468911', '2014-08-25 00:23:33.468911', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "invoices" ("id","date","company","tax","created_at","updated_at","status_type") VALUES (4, '2014-05-29 00:00:00.000000', 'abc', 6.5, '2014-08-29 08:47:59.561580', '2014-08-29 08:47:59.561580', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "invoices" ("id","date","company","tax","created_at","updated_at","status_type") VALUES (5, '2014-08-30 00:00:00.000000', 'me', 0, '2014-08-30 05:23:21.738530', '2014-08-30 05:23:21.738530', 'PAID')[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "ainvoices"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "invoices" ADD "employee_id" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140830061638"]]
+  [1m[36m (38.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-08-30 02:18:47 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 176ms (Views: 159.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2014-08-30 02:18:48 -0400
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 35ms (Views: 30.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/employees/new" for 127.0.0.1 at 2014-08-30 02:18:50 -0400
+Processing by EmployeesController#new as HTML
+  Rendered employees/_form.html.erb (37.4ms)
+  Rendered employees/new.html.erb within layouts/application (45.2ms)
+Completed 200 OK in 67ms (Views: 65.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-08-30 02:19:03 -0400
+Processing by InvoicesController#index as HTML
+  [1m[35mInvoice Load (0.2ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-30')
+  Rendered invoices/index.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 89ms (Views: 35.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/invoices/new" for 127.0.0.1 at 2014-08-30 02:19:05 -0400
+Processing by InvoicesController#new as HTML
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered invoices/_form.html.erb (64.8ms)
+  Rendered invoices/new.html.erb within layouts/application (67.4ms)
+Completed 200 OK in 85ms (Views: 83.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/invoices/new" for 127.0.0.1 at 2014-08-30 02:20:50 -0400
+Processing by InvoicesController#new as HTML
+  [1m[35mEmployee Load (0.3ms)[0m  SELECT "employees".* FROM "employees"
+  Rendered invoices/_form.html.erb (9.5ms)
+  Rendered invoices/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/invoices/new" for 127.0.0.1 at 2014-08-30 02:21:10 -0400
+Processing by InvoicesController#new as HTML
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered invoices/_form.html.erb (9.3ms)
+  Rendered invoices/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 26ms (Views: 24.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-08-30 02:24:12 -0400
+Processing by InvoicesController#index as HTML
+  [1m[35mInvoice Load (0.5ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-30')
+  Rendered invoices/index.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 38ms (Views: 31.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/invoices/3" for 127.0.0.1 at 2014-08-30 02:24:13 -0400
+Processing by InvoicesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mInvoice Load (0.3ms)[0m  [1mSELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered invoices/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 65ms (Views: 61.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/invoices/new" for 127.0.0.1 at 2014-08-30 02:24:22 -0400
+Processing by InvoicesController#new as HTML
+  [1m[35mEmployee Load (0.4ms)[0m  SELECT "employees".* FROM "employees"
+  Rendered invoices/_form.html.erb (23.7ms)
+  Rendered invoices/new.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 44ms (Views: 41.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/invoices" for 127.0.0.1 at 2014-08-30 02:24:30 -0400
+Processing by InvoicesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "invoice"=>{"date(1i)"=>"2014", "date(2i)"=>"8", "date(3i)"=>"30", "company"=>"mmee", "tax"=>"5.5", "employee_id"=>"1", "status_type"=>"PAID"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "invoices" ("company", "created_at", "date", "employee_id", "status_type", "tax", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["company", "mmee"], ["created_at", "2014-08-30 06:24:30.554128"], ["date", "2014-08-30 00:00:00.000000"], ["employee_id", 1], ["status_type", "PAID"], ["tax", 5.5], ["updated_at", "2014-08-30 06:24:30.554128"]]
+  [1m[36m (23.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/invoices/6
+Completed 302 Found in 33ms (ActiveRecord: 24.5ms)
+
+
+Started GET "/invoices/6" for 127.0.0.1 at 2014-08-30 02:24:30 -0400
+Processing by InvoicesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mInvoice Load (0.2ms)[0m  SELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered invoices/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-08-30 02:24:32 -0400
+Processing by InvoicesController#index as HTML
+  [1m[36mInvoice Load (0.3ms)[0m  [1mSELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-30')[0m
+  Rendered invoices/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/invoices?utf8=%E2%9C%93&search%5Bdate_from%5D=2014-08-23&search%5Bdate_to%5D=2014-08-30&commit=Search" for 127.0.0.1 at 2014-08-30 02:24:33 -0400
+Processing by InvoicesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>{"date_from"=>"2014-08-23", "date_to"=>"2014-08-30"}, "commit"=>"Search"}
+  [1m[35mInvoice Load (0.3ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-30')
+  Rendered invoices/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/invoices?utf8=%E2%9C%93&search%5Bdate_from%5D=2014-08-23&search%5Bdate_to%5D=2014-08-31&commit=Search" for 127.0.0.1 at 2014-08-30 02:24:36 -0400
+Processing by InvoicesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>{"date_from"=>"2014-08-23", "date_to"=>"2014-08-31"}, "commit"=>"Search"}
+  [1m[36mInvoice Load (0.2ms)[0m  [1mSELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-31')[0m
+  Rendered invoices/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 0.2ms)
