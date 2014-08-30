@@ -1583,3 +1583,109 @@ Processing by CompaniesController#index as HTML
   [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"
   Rendered companies/index.html.erb within layouts/application (4.3ms)
 Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddStatusTypeToInvoices (20140830052128)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (3.0ms)[0m  [1mALTER TABLE "invoices" ADD "status_type" varchar(255)[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140830052128"]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-30 01:22:36 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 532ms (Views: 516.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-08-30 01:22:45 -0400
+Processing by InvoicesController#index as HTML
+  [1m[35mInvoice Load (0.3ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-30')
+  Rendered invoices/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 124ms (Views: 45.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/invoices/new" for 127.0.0.1 at 2014-08-30 01:22:48 -0400
+Processing by InvoicesController#new as HTML
+  Rendered invoices/_form.html.erb (143.6ms)
+  Rendered invoices/new.html.erb within layouts/application (157.4ms)
+Completed 200 OK in 189ms (Views: 187.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/invoices" for 127.0.0.1 at 2014-08-30 01:23:21 -0400
+Processing by InvoicesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2l7ewOyGiYAawqz7gSyDFYooIPIWXOq22DFB/4qLrkw=", "invoice"=>{"date(1i)"=>"2014", "date(2i)"=>"8", "date(3i)"=>"30", "company"=>"me", "tax"=>"abs", "salesperson"=>"hello", "status_type"=>"PAID"}, "commit"=>"Submit"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "invoices" ("company", "created_at", "date", "salesperson", "status_type", "tax", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["company", "me"], ["created_at", "2014-08-30 05:23:21.738530"], ["date", "2014-08-30 00:00:00.000000"], ["salesperson", "hello"], ["status_type", "PAID"], ["tax", 0.0], ["updated_at", "2014-08-30 05:23:21.738530"]]
+  [1m[36m (8.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/invoices/5
+Completed 302 Found in 29ms (ActiveRecord: 8.9ms)
+
+
+Started GET "/invoices/5" for 127.0.0.1 at 2014-08-30 01:23:21 -0400
+Processing by InvoicesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mInvoice Load (0.4ms)[0m  SELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered invoices/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 34ms (Views: 29.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-08-30 01:23:23 -0400
+Processing by InvoicesController#index as HTML
+  [1m[36mInvoice Load (0.2ms)[0m  [1mSELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-30')[0m
+  Rendered invoices/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-08-30 01:24:54 -0400
+Processing by InvoicesController#index as HTML
+  [1m[35mInvoice Load (0.2ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-30')
+  Rendered invoices/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/invoices?utf8=%E2%9C%93&search%5Bdate_from%5D=2014-08-23&search%5Bdate_to%5D=2014-08-30&commit=Search" for 127.0.0.1 at 2014-08-30 01:26:03 -0400
+Processing by InvoicesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>{"date_from"=>"2014-08-23", "date_to"=>"2014-08-30"}, "commit"=>"Search"}
+  [1m[36mInvoice Load (0.4ms)[0m  [1mSELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-30')[0m
+  Rendered invoices/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/invoices/new" for 127.0.0.1 at 2014-08-30 01:26:06 -0400
+Processing by InvoicesController#new as HTML
+  Rendered invoices/_form.html.erb (9.5ms)
+  Rendered invoices/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 38ms (Views: 37.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/invoices?utf8=%E2%9C%93&search%5Bdate_from%5D=2014-08-23&search%5Bdate_to%5D=2014-08-31&commit=Search" for 127.0.0.1 at 2014-08-30 01:26:14 -0400
+Processing by InvoicesController#index as HTML
+  Parameters: {"utf8"=>"✓", "search"=>{"date_from"=>"2014-08-23", "date_to"=>"2014-08-31"}, "commit"=>"Search"}
+  [1m[35mInvoice Load (0.3ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-31')
+  Rendered invoices/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/invoices/new" for 127.0.0.1 at 2014-08-30 01:27:13 -0400
+Processing by InvoicesController#new as HTML
+  Rendered invoices/_form.html.erb (10.3ms)
+  Rendered invoices/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.0ms)
