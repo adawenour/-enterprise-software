@@ -2050,3 +2050,110 @@ Processing by InvoicesController#index as HTML
   [1m[36mInvoice Load (0.2ms)[0m  [1mSELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-23' AND '2014-08-31')[0m
   Rendered invoices/index.html.erb within layouts/application (4.0ms)
 Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-02 19:36:07 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 476ms (Views: 462.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-09-02 19:36:10 -0400
+Processing by InvoicesController#index as HTML
+  [1m[35mInvoice Load (7.1ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-26' AND '2014-09-02')
+  Rendered invoices/index.html.erb within layouts/application (59.0ms)
+Completed 500 Internal Server Error in 103ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    31:             <td><%= invoice.date.strftime("%Y-%m-%d") %></td>
+    32:             <td><%= invoice.company %></td>
+    33:             <td><%= invoice.tax %></td>
+    34:             <td><%= invoice.employee.name %></td>
+    35:             <td><%= invoice.status_type %></td>
+    36:             <td><%= link_to 'Show', invoice, class: 'btn btn-mini' %></td>
+    37:             <td><%= link_to 'Edit', edit_invoice_path(invoice), class: 'btn btn-mini btn-success' %></td>
+  app/views/invoices/index.html.erb:34:in `block in _app_views_invoices_index_html_erb__2264586349120518989_70198008310200'
+  app/views/invoices/index.html.erb:29:in `_app_views_invoices_index_html_erb__2264586349120518989_70198008310200'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.7ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-09-02 19:36:10 -0400
+Processing by InvoicesController#index as HTML
+  [1m[36mInvoice Load (0.4ms)[0m  [1mSELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-26' AND '2014-09-02')[0m
+  Rendered invoices/index.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    31:             <td><%= invoice.date.strftime("%Y-%m-%d") %></td>
+    32:             <td><%= invoice.company %></td>
+    33:             <td><%= invoice.tax %></td>
+    34:             <td><%= invoice.employee.name %></td>
+    35:             <td><%= invoice.status_type %></td>
+    36:             <td><%= link_to 'Show', invoice, class: 'btn btn-mini' %></td>
+    37:             <td><%= link_to 'Edit', edit_invoice_path(invoice), class: 'btn btn-mini btn-success' %></td>
+  app/views/invoices/index.html.erb:34:in `block in _app_views_invoices_index_html_erb__2264586349120518989_70197989781900'
+  app/views/invoices/index.html.erb:29:in `_app_views_invoices_index_html_erb__2264586349120518989_70197989781900'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.0ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-09-02 19:37:12 -0400
+Processing by InvoicesController#index as HTML
+  [1m[35mInvoice Load (0.3ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-26' AND '2014-09-02')
+  Rendered invoices/index.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    31:             <td><%= invoice.date.strftime("%Y-%m-%d") %></td>
+    32:             <td><%= invoice.company %></td>
+    33:             <td><%= invoice.tax %></td>
+    34:             <td><%= invoice.employee.name %></td>
+    35:             <td><%= invoice.status_type %></td>
+    36:             <td><%= link_to 'Show', invoice, class: 'btn btn-mini' %></td>
+    37:             <td><%= link_to 'Edit', edit_invoice_path(invoice), class: 'btn btn-mini btn-success' %></td>
+  app/views/invoices/index.html.erb:34:in `block in _app_views_invoices_index_html_erb__2264586349120518989_70197987024220'
+  app/views/invoices/index.html.erb:29:in `_app_views_invoices_index_html_erb__2264586349120518989_70197987024220'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.0ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-09-02 19:38:59 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by InvoicesController#index as HTML
+  [1m[35mInvoice Load (0.3ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-26' AND '2014-09-02')
+  Rendered invoices/index.html.erb within layouts/application (18.8ms)
+Completed 500 Internal Server Error in 49ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    31:             <td><%= invoice.date.strftime("%Y-%m-%d") %></td>
+    32:             <td><%= invoice.company %></td>
+    33:             <td><%= invoice.tax %></td>
+    34:             <td><%= invoice.employee.name %></td>
+    35:             <td><%= invoice.status_type %></td>
+    36:             <td><%= link_to 'Show', invoice, class: 'btn btn-mini' %></td>
+    37:             <td><%= link_to 'Edit', edit_invoice_path(invoice), class: 'btn btn-mini btn-success' %></td>
+  app/views/invoices/index.html.erb:34:in `block in _app_views_invoices_index_html_erb__2074673674930807824_70277583256640'
+  app/views/invoices/index.html.erb:29:in `_app_views_invoices_index_html_erb__2074673674930807824_70277583256640'
+
+
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Macintosh/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.5ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-09-02 19:40:13 -0400
+Processing by InvoicesController#index as HTML
+  [1m[36mInvoice Load (0.2ms)[0m  [1mSELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-26' AND '2014-09-02')[0m
+  Rendered invoices/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 149ms (Views: 147.0ms | ActiveRecord: 0.2ms)
