@@ -2362,3 +2362,51 @@ Processing by InvoicesController#show as HTML
   Rendered invoices/show.html.erb within layouts/application (4.1ms)
   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
 Completed 200 OK in 33ms (Views: 29.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-03 23:15:21 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 71ms (Views: 69.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-09-03 23:15:28 -0400
+Processing by InvoicesController#index as HTML
+  [1m[35mInvoice Load (0.4ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-28' AND '2014-09-03')
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT  "employees".* FROM "employees"  WHERE "employees"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered invoices/index.html.erb within layouts/application (5.8ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 91ms (Views: 87.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2014-09-03 23:15:30 -0400
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.3ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (6.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-09-03 23:15:33 -0400
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (9.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 181ms (Views: 27.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-09-03 23:18:15 -0400
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (3.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-09-03 23:20:31 -0400
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (2.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 1300ms (Views: 1297.5ms | ActiveRecord: 0.6ms)
