@@ -2443,3 +2443,53 @@ Migrating to CreatePurchases (20140906043048)
             FROM sqlite_temp_master
             WHERE name='index_users_on_email' AND type='index'
 [0m
+  [1m[36mInvoice Load (0.3ms)[0m  [1mSELECT  "invoices".* FROM "invoices"   ORDER BY "invoices"."id" DESC LIMIT 1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-06 01:27:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (13.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 1085ms (Views: 1028.9ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/welcome/pricing" for 127.0.0.1 at 2014-09-06 01:27:22 -0400
+Processing by WelcomeController#pricing as HTML
+  Rendered welcome/pricing.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 68ms (Views: 66.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-09-06 01:27:25 -0400
+Processing by InvoicesController#index as HTML
+  [1m[35mInvoice Load (13.5ms)[0m  SELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-30' AND '2014-09-06')
+  [1m[36mEmployee Load (0.9ms)[0m  [1mSELECT  "employees".* FROM "employees"  WHERE "employees"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered invoices/index.html.erb within layouts/application (133.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 223ms (Views: 141.6ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/employees" for 127.0.0.1 at 2014-09-06 01:27:27 -0400
+Processing by EmployeesController#index as HTML
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT "employees".* FROM "employees"[0m
+  Rendered employees/index.html.erb within layouts/application (4.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 78ms (Views: 75.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2014-09-06 01:27:29 -0400
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.8ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.erb within layouts/application (12.9ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 52ms (Views: 45.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/invoices" for 127.0.0.1 at 2014-09-06 01:27:30 -0400
+Processing by InvoicesController#index as HTML
+  [1m[36mInvoice Load (0.3ms)[0m  [1mSELECT "invoices".* FROM "invoices"  WHERE (date BETWEEN '2014-08-30' AND '2014-09-06')[0m
+  [1m[35mEmployee Load (0.2ms)[0m  SELECT  "employees".* FROM "employees"  WHERE "employees"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered invoices/index.html.erb within layouts/application (5.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 40ms (Views: 36.7ms | ActiveRecord: 0.9ms)
