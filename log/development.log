@@ -2835,3 +2835,73 @@ Processing by InvoicesController#show as HTML
   Rendered invoices/show.html.erb within layouts/application (5.3ms)
   [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
 Completed 200 OK in 48ms (Views: 39.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/invoices/7" for 127.0.0.1 at 2014-09-07 00:22:00 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by InvoicesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mInvoice Load (1.0ms)[0m  SELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  [1m[35mEmployee Load (1.1ms)[0m  SELECT  "employees".* FROM "employees"  WHERE "employees"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPurchase Load (1.6ms)[0m  [1mSELECT "purchases".* FROM "purchases"  WHERE "purchases"."invoice_id" = ?[0m  [["invoice_id", 7]]
+  Rendered invoices/show.html.erb within layouts/application (74.6ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 737ms (Views: 654.8ms | ActiveRecord: 6.4ms)
+
+
+Started DELETE "/invoices/7/purchases/1" for 127.0.0.1 at 2014-09-07 00:22:08 -0400
+Processing by Invoices::PurchasesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Y/3oMwXf6FoTMFU7jLeN88paWJBkP2azXvjcfoWDZlU=", "invoice_id"=>"7", "id"=>"1"}
+  [1m[36mInvoice Load (0.2ms)[0m  [1mSELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mPurchase Load (0.2ms)[0m  SELECT  "purchases".* FROM "purchases"  WHERE "purchases"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "purchases" WHERE "purchases"."id" = ?  [["id", 1]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/invoices/7
+Completed 302 Found in 9ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/invoices/7" for 127.0.0.1 at 2014-09-07 00:22:08 -0400
+Processing by InvoicesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mInvoice Load (0.2ms)[0m  SELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  [1m[35mEmployee Load (0.2ms)[0m  SELECT  "employees".* FROM "employees"  WHERE "employees"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPurchase Load (0.2ms)[0m  [1mSELECT "purchases".* FROM "purchases"  WHERE "purchases"."invoice_id" = ?[0m  [["invoice_id", 7]]
+  Rendered invoices/show.html.erb within layouts/application (14.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/invoices/7/purchases/new" for 127.0.0.1 at 2014-09-07 00:22:46 -0400
+Processing by Invoices::PurchasesController#new as HTML
+  Parameters: {"invoice_id"=>"7"}
+  [1m[36mInvoice Load (0.2ms)[0m  [1mSELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered invoices/purchases/_form.html.erb (160.1ms)
+  Rendered invoices/purchases/new.html.erb within layouts/application (184.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 279ms (Views: 262.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/invoices/7/purchases" for 127.0.0.1 at 2014-09-07 00:22:51 -0400
+Processing by Invoices::PurchasesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y/3oMwXf6FoTMFU7jLeN88paWJBkP2azXvjcfoWDZlU=", "purchase"=>{"name"=>"hh", "category"=>"hh", "quantity"=>"6"}, "commit"=>"Create Purchase", "invoice_id"=>"7"}
+  [1m[36mInvoice Load (0.3ms)[0m  [1mSELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "purchases" ("category", "created_at", "invoice_id", "name", "quantity", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["category", "hh"], ["created_at", "2014-09-07 04:22:51.868489"], ["invoice_id", 7], ["name", "hh"], ["quantity", 6], ["updated_at", "2014-09-07 04:22:51.868489"]]
+  [1m[35m (46.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/invoices/7
+Completed 302 Found in 55ms (ActiveRecord: 47.1ms)
+
+
+Started GET "/invoices/7" for 127.0.0.1 at 2014-09-07 00:22:51 -0400
+Processing by InvoicesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInvoice Load (0.2ms)[0m  [1mSELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "invoices".* FROM "invoices"  WHERE "invoices"."id" = ? LIMIT 1  [["id", "7"]]
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT  "employees".* FROM "employees"  WHERE "employees"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPurchase Load (0.4ms)[0m  SELECT "purchases".* FROM "purchases"  WHERE "purchases"."invoice_id" = ?  [["invoice_id", 7]]
+  Rendered invoices/show.html.erb within layouts/application (17.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 40ms (Views: 33.5ms | ActiveRecord: 1.5ms)
